@@ -11,12 +11,8 @@ public class DataService {
 
     private File file;
 
-    public DataService(File file) {
-        this.file = new File("C:\\Users\\RENT\\Desktop\\data\\data.dat");
-        ;
-    }
-
     public DataService() {
+        this.file = new File("C:\\Users\\RENT\\Desktop\\data\\data.dat");
     }
 
     public void saveData(String xmlString) {
@@ -25,14 +21,11 @@ public class DataService {
 //        touch - pusty plik
         try {
             FileUtils.touch(file);
-
             //        stringa zapisujemy do pliku za pomoca FileUtils.WriteStringToFile
-
             FileUtils.writeStringToFile(file, xmlString);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
     }
 
     public User loadData() {
@@ -49,10 +42,6 @@ public class DataService {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
         return user;
-
     }
 }

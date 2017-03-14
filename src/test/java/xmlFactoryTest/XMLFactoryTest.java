@@ -27,8 +27,6 @@ public class XMLFactoryTest {
     @Test
     public void objectToXML() {
 
-//        dodane User.class i zadzialalo
-
         XMLFactory<User> xmlFactory = new XMLFactory<User>(User.class);
         User user = new User(login, password);
         String xmlUser = xmlFactory.objectToXML(user);

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.text.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="pl.sda.controller.CompanyCreateController">
+    <children>
+        <GridPane>
+            <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+            </columnConstraints>
+            <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="100.0" minHeight="10.0" prefHeight="61.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="44.0" minHeight="0.0" prefHeight="39.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+            </rowConstraints>
+            <children>
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwa firmy" textAlignment="CENTER" wrappingWidth="283.13671875" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Ulica" textAlignment="CENTER" wrappingWidth="285.13671875" GridPane.rowIndex="2" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Numer budynku" textAlignment="CENTER" wrappingWidth="291.103515625" GridPane.rowIndex="3" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Numer lokalu" textAlignment="CENTER" wrappingWidth="290.54296875" GridPane.rowIndex="4" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Kod pocztowy" textAlignment="CENTER" wrappingWidth="290.9765625" GridPane.rowIndex="5" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Miasto" textAlignment="CENTER" wrappingWidth="289.9765625" GridPane.rowIndex="6" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="NIP" textAlignment="CENTER" wrappingWidth="289.890625" GridPane.rowIndex="7" />
+                <TextField fx:id="companyNameField" GridPane.columnIndex="1" />
+                <TextField fx:id="streetField" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                <TextField fx:id="houseNumberField" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                <TextField fx:id="flatNumberField" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                <TextField fx:id="postalCodeField" GridPane.columnIndex="1" GridPane.rowIndex="5" />
+                <TextField fx:id="cityNameField" GridPane.columnIndex="1" GridPane.rowIndex="6" />
+                <TextField fx:id="nipNumberField" GridPane.columnIndex="1" GridPane.rowIndex="7" />
+                <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Prefix" textAlignment="CENTER" wrappingWidth="288.337890625" GridPane.rowIndex="1" />
+                <RadioButton fx:id="streetRadio" mnemonicParsing="false" onAction="#choosePrefixOnAction" text="Ulica" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                <RadioButton fx:id="squareRadio" mnemonicParsing="false" onAction="#choosePrefixOnAction" text="Plac" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
+                <RadioButton fx:id="avenueRadio" mnemonicParsing="false" onAction="#choosePrefixOnAction" text="Aleja" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+                <Button fx:id="addCompanyButton" mnemonicParsing="false" onAction="#addCompanyOnAction" text="Dodaj" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+            </children>
+        </GridPane>
+    </children>
+    <padding>
+        <Insets bottom="50.0" left="50.0" right="50.0" top="50.0" />
+    </padding>
+</StackPane>

@@ -18,11 +18,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/LoginView.fxml"));
+        // FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/LoginView.fxml"));
+        FXMLLoader loader = new FXMLLoader(this.getClass().getResource("/CompanyCreateView.fxml"));
         StackPane stackPane = loader.load();
         Scene scene = new Scene(stackPane);
         primaryStage.setScene(scene);
-        primaryStage.setTitle("Log in");
+        primaryStage.setTitle("Add company");
         primaryStage.show();
     }
 }

@@ -1,11 +1,14 @@
 package pl.sdacademy.service;
 
 import org.apache.commons.io.FileUtils;
+import pl.sdacademy.model.Company;
 import pl.sdacademy.model.User;
 import pl.sdacademy.xml.XMLFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 public class DataService {
 
@@ -43,5 +46,14 @@ public class DataService {
             e.printStackTrace();
         }
         return user;
+    }
+
+
+    public List<String> printCompanyInfo(Company company) {
+        List<String> result = new ArrayList<>();
+        result.add(company.getName());
+        result.add(company.getAddress().toString());
+        result.add(company.getNIP());
+        return result;
     }
 }

@@ -1,16 +1,18 @@
 package pl.sda.controller;
 
 import javafx.event.ActionEvent;
-import javafx.scene.control.RadioButton;
+import javafx.scene.control.*;
 import javafx.fxml.FXML;
-import javafx.scene.control.Button;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import pl.sda.pdf.PdfFactory;
 import pl.sdacademy.model.Address;
 import pl.sdacademy.model.Company;
 import pl.sdacademy.model.StreetPrefix;
+import pl.sdacademy.service.DataService;
 
-public class CompanyCreateController {
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
+
+public class CompanyCreateController extends Controller {
 
     @FXML
     private TextField streetField;
@@ -63,12 +65,15 @@ public class CompanyCreateController {
                     break;
             }
         }
-
     }
 
 
     @FXML
-    void addCompanyOnAction(ActionEvent event) {
+    public Company addCompanyOnAction() {
+        return bindToModel();
+    }
+
+    private Company bindToModel() {
         Company company = new Company();
         company.setName(companyNameField.getText());
         Address address = new Address();
@@ -80,8 +85,9 @@ public class CompanyCreateController {
         address.setCity(cityNameField.getText());
         company.setAddress(address);
         company.setNIP(nipNumberField.getText());
-
-        System.out.println(company);
+        DataService dataService = new DataService();
+        dataService.printOutCompanyInfo(company);
+        return company;
     }
 
     @FXML
@@ -90,8 +96,29 @@ public class CompanyCreateController {
         streetRadio.setToggleGroup(group);
         squareRadio.setToggleGroup(group);
         avenueRadio.setToggleGroup(group);
+
     }
 
+    private void validate() {
+        Pattern zipPattern = Pattern.compile("(^\\d{2}-\\d{3}$)");
+        Matcher zipMatcher = zipPattern.matcher(postalCodeField.getText());
+        if (zipMatcher.find()) {
+            String zip = zipMatcher.group(1);
+            showConfirmationAllert("Postal code is correct");
+        } else {
+            showErrorAlert("Sorry!Wrong postal code");
+        }
+    }
 
+    @FXML
+    void makePDFOnAction(ActionEvent event) {
+        PdfFactory pdfFactory = new PdfFactory();
+        pdfFactory.pdfFromCompany(addCompanyOnAction());
+    }
+
+    @FXML
+    void validateOnAction(ActionEvent event) {
+        validate();
+    }
 }
 

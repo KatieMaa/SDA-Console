@@ -7,8 +7,10 @@ import pl.sdacademy.xml.XMLFactory;
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Properties;
 
 public class DataService {
 
@@ -56,4 +58,34 @@ public class DataService {
         result.add(company.getNIP());
         return result;
     }
+
+    public void printOutCompanyInfo(Company company) {
+        List<String> listInfo;
+        listInfo = printCompanyInfo(company);
+        for (String line : listInfo) {
+            System.out.println(line);
+        }
+    }
+
+    public static Properties loadProperties() {
+        Properties result = new Properties();
+        InputStream inputStream;
+        inputStream = DataService.class.getClassLoader().getResourceAsStream("data.properties");
+        try {
+            result.load(inputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (inputStream != null) {
+                try {
+                    inputStream.close();
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+        return result;
+    }
+
+
 }

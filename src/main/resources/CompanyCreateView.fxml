@@ -43,7 +43,9 @@
                 <RadioButton fx:id="streetRadio" mnemonicParsing="false" onAction="#choosePrefixOnAction" text="Ulica" GridPane.columnIndex="1" GridPane.rowIndex="1" />
                 <RadioButton fx:id="squareRadio" mnemonicParsing="false" onAction="#choosePrefixOnAction" text="Plac" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="1" />
                 <RadioButton fx:id="avenueRadio" mnemonicParsing="false" onAction="#choosePrefixOnAction" text="Aleja" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1" />
-                <Button fx:id="addCompanyButton" mnemonicParsing="false" onAction="#addCompanyOnAction" text="Dodaj" GridPane.columnIndex="1" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
+                <Button fx:id="addCompanyButton" mnemonicParsing="false" onAction="#addCompanyOnAction" text="Dodaj" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+            <Button fx:id="makePDFButton" mnemonicParsing="false" onAction="#makePDFOnAction" text="PDF" GridPane.halignment="CENTER" GridPane.rowIndex="8" />
+            <Button fx:id="validateButton" mnemonicParsing="false" onAction="#validateOnAction" text="Validate Form" GridPane.halignment="RIGHT" GridPane.rowIndex="8" />
             </children>
         </GridPane>
     </children>
